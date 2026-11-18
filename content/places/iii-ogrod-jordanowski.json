@@ -1,0 +1,84 @@
+{
+  "slug": "iii-ogrod-jordanowski",
+  "status": "draft",
+  "publishedAt": "2026-11-18T14:19:00",
+  "archived": false,
+  "categories": [
+    "sport"
+  ],
+  "lat": 52.21595,
+  "lng": 20.99569,
+  "address": "Wawelska 3, 02-034 Warszawa (Ochota)",
+  "website": "https://ogrodjordanowski3.szkolnastrona.pl",
+  "photos": [
+    {
+      "image": "/content/photos/img_9132.webp",
+      "author": "Fundacja Wyspa Wolności",
+      "license": "© Fundacja Wyspa Wolności",
+      "licenseUrl": "",
+      "source": ""
+    },
+    {
+      "image": "/content/photos/img_9140.webp",
+      "author": "Fundacja Wyspa Wolności",
+      "license": "© Fundacja Wyspa Wolności",
+      "licenseUrl": "",
+      "source": ""
+    },
+    {
+      "image": "/content/photos/img_9127.webp",
+      "author": "Fundacja Wyspa Wolności",
+      "license": "© Fundacja Wyspa Wolności",
+      "licenseUrl": "",
+      "source": ""
+    },
+    {
+      "image": "/content/photos/img_9129.webp",
+      "author": "Fundacja Wyspa Wolności",
+      "license": "© Fundacja Wyspa Wolności",
+      "licenseUrl": "",
+      "source": ""
+    }
+  ],
+  "videos": [
+    {
+      "video": "",
+      "poster": "",
+      "caption": "",
+      "captionEn": "",
+      "credit": ""
+    }
+  ],
+  "pl": {
+    "name": "III Ogród Jordanowski",
+    "summary": "Ogród jordanowski na Ochocie z boiskami do siatkówki, koszykówki i piłki nożnej, stołami do ping-ponga i placem zabaw – jedno z najlepszych miejsc w Warszawie, by po prostu przyjść i zagrać.",
+    "article": [
+      "Rada uczestników projektu: to jedno z najlepszych miejsc w Warszawie, żeby zagrać w siatkówkę i koszykówkę. Osoby, które często tu bywają, polecają przychodzić w ciepłym sezonie, przy suchej pogodzie, w godzinach 14:00–19:00. Nie bój się podejść i zapytać, czy możesz dołączyć do gry.",
+      "III Ogród Jordanowski przy ul. Wawelskiej 3 to placówka wychowania pozaszkolnego prowadzona przez dzielnicę Ochota. Na terenie są m.in. boisko piłkarskie ze sztuczną nawierzchnią, wielofunkcyjne boiska z koszami do koszykówki i siatką do siatkówki, stoły do tenisa stołowego oraz plac zabaw, a zimą górka saneczkowa. Wszystko otaczają wysokie drzewa, które jesienią robią tu naprawdę malowniczy widok.",
+      "Ogród ma długą historię: według tradycji powstał w 1928 roku, a przedwojenne źródła wskazują na rok 1933. To jedyny warszawski ogród jordanowski z zachowaną oryginalną architekturą drewnianą. Na terenie obowiązuje zakaz palenia, picia alkoholu i grillowania, a wstęp ze zwierzętami jest niedozwolony. Godziny dostępności boisk najlepiej sprawdzić pod numerem 22 825 14 44."
+    ],
+    "doHere": [],
+    "getThere": "",
+    "bestTime": "Ciepły sezon, sucha pogoda, godz. 14:00–19:00",
+    "tips": []
+  },
+  "en": {
+    "name": "III Jordan Garden (III Ogród Jordanowski)",
+    "summary": "A historic Jordan garden in Ochota with volleyball, basketball and football courts, concrete ping-pong tables and a playground – one of the best places in Warsaw to simply show up and play.",
+    "article": [
+      "Tip from project participants: this is one of the best places in Warsaw to play volleyball and basketball. Regulars recommend coming in the warm season, in dry weather, between 2 p.m. and 7 p.m. Don't be shy – walk up and ask whether you can join a game.",
+      "The III Jordan Garden at 3 Wawelska Street in Ochota is an out-of-school education centre run by the Ochota district. The grounds include a football pitch with an artificial surface, multi-purpose courts with basketball hoops and a volleyball net, table tennis tables and a playground, plus a sledding hill in winter. Tall trees surround everything and make the place especially pretty in autumn.",
+      "The garden has a long history: according to tradition it was founded in 1928, while pre-war sources point to 1933. It is the only Jordan garden in Warsaw that has kept its original wooden architecture. Smoking, alcohol and grilling are not allowed on the grounds, and animals are not permitted. For the opening hours of the courts, call 22 825 14 44."
+    ],
+    "doHere": [],
+    "getThere": "",
+    "bestTime": "Warm season, dry weather, 2–7 p.m.",
+    "tips": []
+  },
+  "meta": {
+    "createdAt": "2026-11-18T14:42:11",
+    "createdBy": "urkisse",
+    "updatedAt": "2026-11-18T14:42:11",
+    "updatedBy": "urkisse"
+  }
+}
