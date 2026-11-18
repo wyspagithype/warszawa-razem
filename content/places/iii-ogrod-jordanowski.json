@@ -1,6 +1,6 @@
 {
   "slug": "iii-ogrod-jordanowski",
-  "status": "draft",
+  "status": "published",
   "publishedAt": "2026-11-18T14:19:00",
   "archived": false,
   "categories": [
@@ -78,7 +78,7 @@
   "meta": {
     "createdAt": "2026-11-18T14:42:11",
     "createdBy": "urkisse",
-    "updatedAt": "2026-11-18T14:42:11",
+    "updatedAt": "2026-11-18T14:44:13",
     "updatedBy": "urkisse"
   }
 }
