@@ -44,6 +44,40 @@
   <body>
     <!-- Sveltia CMS: the editing panel. It edits content/places/*.json and content/photos/* in the
          GitHub repository (see admin/config.yml); every save is a commit that republishes the site. -->
+    <script>
+      // Friendly message when someone picks or drops a non-image file bigger than the limit (videos are not shrunk by the
+      // panel, and a big upload can make the save fail with "Failed to fetch"). Keep MAX in sync with max_file_size in config.yml.
+      (function () {
+        var MAX = 10000000; // 10 MB
+        function mb(n) { return (n / 1000000).toFixed(1).replace('.', ','); }
+        function esc(t) { return String(t).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+        function tooBig(f) { return f && f.size > MAX && !/^image\//.test(f.type); }
+        function show(files) {
+          var list = files.map(function (f) { return '<li><b>' + esc(f.name) + '</b> – ' + mb(f.size) + ' MB</li>'; }).join('');
+          var d = document.createElement('dialog');
+          d.style.cssText = 'border:0;border-radius:18px;padding:0;max-width:min(560px,92vw);font:16px/1.5 system-ui,sans-serif;color:#22224f;box-shadow:0 30px 80px rgba(20,0,40,.45)';
+          d.innerHTML = '<div style="padding:24px 26px"><h2 style="margin:0 0 10px;font-size:1.25rem">Plik jest za duży / File is too big</h2>' +
+            '<ul style="margin:0 0 12px;padding-left:20px">' + list + '</ul>' +
+            '<p style="margin:0 0 10px"><b>Maksymalny rozmiar: 10 MB.</b> Zmniejsz film (np. w HandBrake, ustawienie „Fast 720p30”) i dodaj go ponownie. Możesz też wkleić link do filmu z YouTube lub Vimeo w polu „Link do filmu”.</p>' +
+            '<p style="margin:0 0 18px;color:#5b5b7e"><b>Maximum size: 10 MB.</b> Shrink the video (for example with HandBrake, preset “Fast 720p30”) and add it again, or paste a YouTube or Vimeo link in the “Video link” field instead.</p>' +
+            '<button type="button" style="font:700 15px system-ui;border:0;border-radius:999px;background:#99008e;color:#fff;padding:10px 22px;cursor:pointer">OK</button></div>';
+          d.querySelector('button').addEventListener('click', function () { d.close(); });
+          d.addEventListener('close', function () { d.remove(); });
+          document.body.appendChild(d);
+          d.showModal();
+        }
+        function check(list, e, input) {
+          var big = Array.prototype.filter.call(list || [], tooBig);
+          if (!big.length) return;
+          e.stopImmediatePropagation();
+          e.preventDefault();
+          if (input) input.value = '';
+          show(big);
+        }
+        document.addEventListener('change', function (e) { var t = e.target; if (t && t.tagName === 'INPUT' && t.type === 'file') check(t.files, e, t); }, true);
+        document.addEventListener('drop', function (e) { if (e.dataTransfer) check(e.dataTransfer.files, e, null); }, true);
+      })();
+    </script>
     <script src="./sveltia-cms.js"></script>
     <script>
       // On every save: fill in the "Extra" block (created / modified, by whom) and stamp the first

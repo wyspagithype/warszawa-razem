@@ -172,10 +172,11 @@
     const dlg = document.createElement('dialog');
     dlg.className = 'lightbox';
     dlg.setAttribute('aria-label', S.gallery || '');
-    dlg.innerHTML = `<div class="lb-stage"><img alt="" draggable="false"><video class="lb-video" controls playsinline preload="metadata" hidden></video><button type="button" class="lb-nav lb-prev" aria-label="${esc(S.prev)}">${svg('<path d="m15 18-6-6 6-6"/>', 22)}</button><button type="button" class="lb-nav lb-next" aria-label="${esc(S.next)}">${svg('<path d="m9 18 6-6-6-6"/>', 22)}</button><button type="button" class="lb-close" aria-label="${esc(S.close)}">${svg('<path d="M18 6 6 18M6 6l12 12"/>', 20)}</button></div><div class="lb-bar"><span class="lb-cap"></span><span class="lb-count"></span></div>`;
+    dlg.innerHTML = `<div class="lb-stage"><img alt="" draggable="false"><video class="lb-video" controls playsinline preload="metadata" hidden></video><iframe class="lb-embed" hidden allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin" title=""></iframe><button type="button" class="lb-nav lb-prev" aria-label="${esc(S.prev)}">${svg('<path d="m15 18-6-6 6-6"/>', 22)}</button><button type="button" class="lb-nav lb-next" aria-label="${esc(S.next)}">${svg('<path d="m9 18 6-6-6-6"/>', 22)}</button><button type="button" class="lb-close" aria-label="${esc(S.close)}">${svg('<path d="M18 6 6 18M6 6l12 12"/>', 20)}</button></div><div class="lb-bar"><span class="lb-cap"></span><span class="lb-count"></span></div>`;
     document.body.appendChild(dlg);
     const img = dlg.querySelector('img');
     const vid = dlg.querySelector('video');
+    const frame = dlg.querySelector('iframe');
     const cap = dlg.querySelector('.lb-cap');
     const count = dlg.querySelector('.lb-count');
     const prev = dlg.querySelector('.lb-prev');
@@ -187,12 +188,20 @@
       vid.pause();
       vid.removeAttribute('src');
       vid.load();
+      frame.removeAttribute('src'); // a YouTube / Vimeo embed stops when its address is removed
     };
     const show = (i, autoplay) => {
       idx = (i + items.length) % items.length;
       const b = items[idx];
       stopVideo();
-      if (b.dataset.kind === 'video') {
+      frame.hidden = true;
+      if (b.dataset.kind === 'embed') {
+        img.hidden = true;
+        vid.hidden = true;
+        frame.title = b.dataset.alt || '';
+        frame.src = b.dataset.embed; // loaded only now, after the click
+        frame.hidden = false;
+      } else if (b.dataset.kind === 'video') {
         img.hidden = true;
         vid.hidden = false;
         vid.poster = b.dataset.full || '';
@@ -241,7 +250,7 @@
     });
     // coming from a map popup of a place with a video (…/#video): open the video straight away
     if (location.hash === '#video') {
-      const i = items.findIndex((b) => b.dataset.kind === 'video');
+      const i = items.findIndex((b) => b.dataset.kind === 'video' || b.dataset.kind === 'embed');
       if (i >= 0) { show(i, true); dlg.showModal(); }
     }
   }

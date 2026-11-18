@@ -190,8 +190,8 @@ async function loadContent() {
     p.website = String(p.website || '').trim();
     // videos: optional; an entry without a file is ignored
     p.videos = (Array.isArray(p.videos) ? p.videos : [])
-      .map((v) => ({ video: String(v?.video || '').trim(), poster: String(v?.poster || '').trim(), caption: String(v?.caption || '').trim(), captionEn: String(v?.captionEn || '').trim(), credit: String(v?.credit || '').trim() }))
-      .filter((v) => v.video);
+      .map((v) => ({ url: String(v?.url || '').trim(), video: String(v?.video || '').trim(), poster: String(v?.poster || '').trim(), caption: String(v?.caption || '').trim(), captionEn: String(v?.captionEn || '').trim(), credit: String(v?.credit || '').trim() }))
+      .filter((v) => v.video || v.url);
     const base = p[LANGS[0]] || {};
     if (isEmpty(base.name)) fail(`${LANGS[0]}.name (the place name) is required`);
     for (const l of LANGS) {
@@ -256,15 +256,60 @@ async function preparePhotos(places) {
   }
 }
 
+// A YouTube or Vimeo link becomes a click-to-load embed (youtube-nocookie / Vimeo with do-not-track): nothing is requested
+// from those services until a visitor clicks the video. Returns null for any other address.
+function parseVideoUrl(raw) {
+  let u;
+  try {
+    u = new URL(raw);
+  } catch {
+    return null;
+  }
+  const h = u.hostname.replace(/^(www|m)\./, '');
+  let id = '';
+  if (h === 'youtu.be') id = u.pathname.slice(1).split('/')[0];
+  else if (h === 'youtube.com' || h === 'youtube-nocookie.com') {
+    if (u.pathname === '/watch') id = u.searchParams.get('v') || '';
+    else id = (u.pathname.match(/^\/(?:embed|shorts|live|v)\/([\w-]{11})/) || [])[1] || '';
+  }
+  if (/^[\w-]{11}$/.test(id)) return { provider: 'youtube', watch: `https://www.youtube.com/watch?v=${id}`, embed: `https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0&playsinline=1` };
+  if (h === 'vimeo.com' || h === 'player.vimeo.com') {
+    const m = u.pathname.match(/\/(\d{6,})(?:\/([0-9a-f]+))?/i);
+    if (m) return { provider: 'vimeo', watch: `https://vimeo.com/${m[1]}${m[2] ? `/${m[2]}` : ''}`, embed: `https://player.vimeo.com/video/${m[1]}?autoplay=1&dnt=1${m[2] ? `&h=${m[2]}` : ''}` };
+  }
+  return null;
+}
+
 const VIDEO_TYPES = { '.mp4': 'video/mp4', '.m4v': 'video/mp4', '.webm': 'video/webm', '.ogv': 'video/ogg' };
 // Videos are copied unchanged (no re-encoding) to dist/media/places/<slug>/. Keep them small: the files live in the
-// Git repository, and some hosts limit a single file to 25 MB.
+// Git repository, and a big file can also make saving in the panel fail; the panel limit is 10 MB.
 async function prepareVideos(places) {
   const videoRoot = path.join(ROOT, 'content/videos');
   const photoRoot = path.join(ROOT, 'content/photos');
   for (const p of places) {
     const list = [];
     for (const v of p.videos) {
+      if (!v.video) {
+        // a link instead of a file
+        const e = parseVideoUrl(v.url);
+        if (!e) {
+          console.warn(process.env.GITHUB_ACTIONS ? `::warning file=content/places/${p.slug}.json::video link "${v.url}" is not a YouTube or Vimeo address and was left out` : `warning: ${p.slug}: video link "${v.url}" is not a YouTube or Vimeo address and was left out`);
+          continue;
+        }
+        let poster = p.photos[0];
+        if (v.poster) {
+          const photoRoot = path.join(ROOT, 'content/photos');
+          const ps = path.resolve(ROOT, v.poster.replace(/^\/+/, ''));
+          if (ps.startsWith(photoRoot + path.sep) && fsSync.existsSync(ps)) {
+            const pn = path.basename(ps).replace(/[^A-Za-z0-9._-]+/g, '-');
+            await fs.mkdir(path.join(DIST, 'img/places', p.slug), { recursive: true });
+            await fs.copyFile(ps, path.join(DIST, 'img/places', p.slug, pn));
+            poster = `/img/places/${p.slug}/${pn}`;
+          }
+        }
+        list.push({ src: e.watch, embed: e.embed, type: 'embed', provider: e.provider, poster, caption: v.caption, captionEn: v.captionEn, credit: v.credit });
+        continue;
+      }
       const where = `content/places/${p.slug}.json: video "${v.video}"`;
       const src = path.resolve(ROOT, v.video.replace(/^\/+/, ''));
       if (!src.startsWith(videoRoot + path.sep)) throw new Error(`${where} must be inside content/videos/`);
@@ -272,7 +317,7 @@ async function prepareVideos(places) {
       if (!type) throw new Error(`${where} must be an .mp4, .webm or .ogv file`);
       if (!fsSync.existsSync(src)) throw new Error(`${where} does not exist`);
       const mb = fsSync.statSync(src).size / 1048576;
-      if (mb > 25) console.warn(process.env.GITHUB_ACTIONS ? `::warning file=${v.video}::video is ${mb.toFixed(0)} MB; compress it (aim for under 10 MB)` : `warning: ${v.video} is ${mb.toFixed(0)} MB; compress it (aim for under 10 MB)`);
+      if (mb > 10) console.warn(process.env.GITHUB_ACTIONS ? `::warning file=${v.video}::video is ${mb.toFixed(0)} MB; compress it (aim for under 10 MB)` : `warning: ${v.video} is ${mb.toFixed(0)} MB; compress it (aim for under 10 MB)`);
       const dir = path.join(DIST, 'media/places', p.slug);
       await fs.mkdir(dir, { recursive: true });
       const name = path.basename(src).replace(/[^A-Za-z0-9._-]+/g, '-');
@@ -513,6 +558,10 @@ function placePage(lang, p, ctx) {
       const more = k === 2 && media.length > 3 ? `<span class="g-more">+${media.length - 3}</span>` : '';
       const hid = k > 2 ? ' hidden' : '';
       const prio = k === 0 ? ' fetchpriority="high"' : ' loading="lazy"';
+      if (m.kind === 'video' && m.v.embed) {
+        const cap = vidCap(m.v, m.i);
+        return `<a class="g-item g-${k} g-video" href="${m.v.src}" target="_blank" rel="noopener" data-kind="embed" data-embed="${esc(m.v.embed)}" data-full="${m.v.poster}" data-alt="${esc(cap)}"${hid}><img src="${m.v.poster}" width="800" height="600" alt="${esc(cap)}"${prio} decoding="async"><span class="g-play" aria-hidden="true">${PLAY_BIG}</span><span class="play-badge">${PLAY}${VIDEO_LABEL[lang]}</span>${more}</a>`;
+      }
       if (m.kind === 'video') {
         const cap = vidCap(m.v, m.i);
         return `<a class="g-item g-${k} g-video" href="${m.v.src}" data-kind="video" data-video="${m.v.src}" data-full="${m.v.poster}" data-alt="${esc(cap)}"${hid}><img src="${m.v.poster}" width="800" height="600" alt="${esc(cap)}"${prio} decoding="async"><span class="g-play" aria-hidden="true">${PLAY_BIG}</span><span class="play-badge">${PLAY}${VIDEO_LABEL[lang]}</span>${more}</a>`;

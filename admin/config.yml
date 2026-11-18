@@ -30,7 +30,8 @@ public_folder: content/photos
 media_libraries:
   default:
     config:
-      max_file_size: 25000000 # 25 MB; videos should be much smaller (see the hint on the Videos field)
+      max_file_size: 10000000 # 10 MB. Photos are shrunk automatically (below); videos are not, so a bigger file is refused with a clear message
+                              # (a larger file can make the save fail with "Failed to fetch")
       slugify_filename: true
       transformations:
         raster_image:
@@ -160,9 +161,15 @@ collections:
         widget: list
         required: false
         collapsed: true
-        summary: "{{caption}} {{video}}"
-        hint: "Opcjonalne. Plik MP4 (H.264), najlepiej do 10 MB (maks. 25 MB), 720p, kilkadziesiąt sekund. Dłuższe filmy: skompresuj lub podaj link. Każdy plik zostaje w historii repozytorium na stałe. Odtwarzacz ma przyciski start/stop, przewijanie, głośność i pełny ekran. / Optional. MP4 (H.264), ideally under 10 MB (max 25 MB), 720p, up to a minute or so. For longer films compress them first. Every uploaded file stays in the repository history for good. The player has play/pause, seeking, volume and fullscreen."
+        summary: "{{caption}} {{url}} {{video}}"
+        hint: "Opcjonalne. Plik MP4 (H.264), do 10 MB (panel odrzuci większy plik), 720p, kilkadziesiąt sekund. Zbyt duży film najpierw zmniejsz, np. w HandBrake (ustawienie „Fast 720p30”) albo podaj link do filmu. Każdy plik zostaje w historii repozytorium na stałe. Odtwarzacz ma przyciski start/stop, przewijanie, głośność i pełny ekran. / Optional. MP4 (H.264), up to 10 MB (the panel refuses larger files), 720p, up to a minute or so. If a film is too big, shrink it first, e.g. with HandBrake (preset “Fast 720p30”), or link to it instead. Every uploaded file stays in the repository history for good. The player has play/pause, seeking, volume and fullscreen."
         fields:
+          - label: "Link do filmu (YouTube / Vimeo) / Video link"
+            name: url
+            widget: string
+            required: false
+            pattern: ["^https?://(www\\.|m\\.)?(youtube\\.com|youtu\\.be|vimeo\\.com)/\\S+$", "Wklej pełny link do YouTube lub Vimeo / Paste a full YouTube or Vimeo link"]
+            hint: "Zamiast pliku: wklej link z YouTube lub Vimeo (np. https://www.youtube.com/watch?v=…). Film ładuje się z tego serwisu dopiero po kliknięciu. Wypełnij link ALBO plik, nie oba. / Instead of a file: paste a YouTube or Vimeo link. The film loads from that service only after a click. Fill in the link OR the file, not both."
           - label: "Plik wideo / Video file"
             name: video
             widget: file

@@ -75,10 +75,13 @@ lightbox, where the video has a normal player (play/pause, seeking, volume, full
 photos. Nothing autoplays on the page, and only the first bytes load until someone presses play. Cards and map
 popups get a "Video" badge too; clicking the image in a map popup opens the place page, and for a place with a video
 (`.../#video`) it opens the video straight away. Files go to `content/videos/`
-and are published unchanged, so compress them first: MP4 (H.264), 720p, ideally under 10 MB, at most 25 MB (the
-panel refuses bigger files; the build warns above 25 MB). Every uploaded file stays in the Git history for good, so
+and are published unchanged, so compress them first: MP4 (H.264), 720p, at most 10 MB (the
+panel refuses bigger files with a clear message, because a larger upload can make the save fail with
+"Failed to fetch"; the build warns above 10 MB). Every uploaded file stays in the Git history for good, so
 the repository grows with each upload (GitHub advises keeping a repository under about 1 GB; a single file over
-100 MB cannot be pushed at all). For long or many videos use a video host instead (a hosting plan, Vimeo, YouTube
+100 MB cannot be pushed at all). A video can also be a **link** (YouTube or Vimeo) instead of a file: paste the address into the *Video link* field. It is shown like
+an uploaded video (poster image, play button, lightbox) but loads from YouTube (privacy-enhanced domain) or Vimeo (do-not-track)
+only after a click; set a poster image or the place's first photo is used. For long or many videos use a link rather than a file (a hosting plan, Vimeo, YouTube
 with the privacy-enhanced embed) and link to it. The six demo clips (8 s, about 0.5 MB each) were made from the
 place photos with ffmpeg:
 `ffmpeg -loop 1 -i photo.jpg -vf "scale=1920:1080:force_original_aspect_ratio=increase,crop=1920:1080,zoompan=z='min(1.0+0.0009*on,1.22)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=960x540:fps=25,format=yuv420p" -t 8 -r 25 -c:v libx264 -crf 26 -movflags +faststart -an out.mp4`
