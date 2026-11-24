@@ -12,13 +12,6 @@
   "website": "",
   "photos": [
     {
-      "image": "",
-      "author": "",
-      "license": "",
-      "licenseUrl": "",
-      "source": ""
-    },
-    {
       "image": "/content/photos/знімок-екрана-2026-11-24-о-10.18.44.webp",
       "author": "Adam Gorzkowski",
       "license": "",
@@ -70,7 +63,7 @@
   "meta": {
     "createdAt": "2026-11-24T10:16:54",
     "createdBy": "urkisse",
-    "updatedAt": "2026-11-24T10:19:55",
+    "updatedAt": "2026-11-24T10:20:29",
     "updatedBy": "urkisse"
   }
 }
