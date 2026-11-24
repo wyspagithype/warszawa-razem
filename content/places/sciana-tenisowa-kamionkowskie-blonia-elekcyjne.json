@@ -10,7 +10,22 @@
   "lng": 21.06836,
   "address": "Kamionkowskie Błonia Elekcyjne, rejon ul. Stanisława Augusta, Kamionek, Warszawa-Praga-Południe",
   "website": "",
-  "photos": [],
+  "photos": [
+    {
+      "image": "",
+      "author": "",
+      "license": "",
+      "licenseUrl": "",
+      "source": ""
+    },
+    {
+      "image": "/content/photos/знімок-екрана-2026-11-24-о-10.18.44.webp",
+      "author": "Adam Gorzkowski",
+      "license": "",
+      "licenseUrl": "",
+      "source": "https://www.google.com/maps/place/%C5%9Acianka+tenisowa/@52.2435001,21.0683626,3a,75y,90t/data=!3m8!1e2!3m6!1sCIHM0ogKEICAgICRs9PCKw!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FANWiy9RpKndQloP-kxR1lseB12asEtp3-T_HmQo0JDrR4hbnQxKmBii533fjnFOCagdzjus_sMHQpA7DcyQhPRekssNNyYIN6kJAqtXdRPpWOjE0AH-R5SkbLWkA4624jWF3c6bNwOw%3Dw203-h152-k-no!7i4032!8i3024!4m7!3m6!1s0x471ecd8fa7ecb141:0x3f89db550d603de0!8m2!3d52.2435001!4d21.0683626!10e5!16s%2Fg%2F11q24k1gzl?entry=ttu&g_ep=EgoyMDI2MTExOC4xIKXMDSoASAFQAw%3D%3D"
+    }
+  ],
   "videos": [],
   "pl": {
     "name": "Ścianka tenisowa na Kamionkowskich Błoniach Elekcyjnych",
@@ -55,7 +70,7 @@
   "meta": {
     "createdAt": "2026-11-24T10:16:54",
     "createdBy": "urkisse",
-    "updatedAt": "2026-11-24T10:16:54",
+    "updatedAt": "2026-11-24T10:19:55",
     "updatedBy": "urkisse"
   }
 }
