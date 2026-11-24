@@ -1,7 +1,7 @@
 {
   "slug": "spotkania-integracyjne-dozynkowa-6a",
   "status": "draft",
-  "publishedAt": "",
+  "publishedAt": "2026-11-24T11:56:00",
   "archived": false,
   "categories": [
     "integration"
@@ -16,13 +16,13 @@
     "name": "Spotkania integracyjne Fundacji Wyspa Wolności",
     "summary": "Cotygodniowe spotkania integracyjne dla młodzieży 14–18 lat: gry planszowe, rozmowy i nowe znajomości w gronie z Polski, Ukrainy i Białorusi.",
     "article": [
-      "Co czwartek w godz. 18:30–20:30 młodzież w wieku 14–18 lat spotyka się przy ul. Dożynkowej 6A na Mokotowie na spotkaniach integracyjnych Fundacji Wyspa Wolności. To swobodny wieczór: gry planszowe, rozmowy i wspólne spędzanie czasu, bez presji i bez egzaminów z języka.",
-      "Na spotkania przychodzą młodzi ludzie z Polski, Ukrainy i Białorusi, więc to dobra okazja, by poznać rówieśników z różnych krajów i poćwiczyć rozmowę po polsku. Udział jest co tydzień, wyłącznie po wcześniejszym zapisie – wystarczy napisać na wolnawyspaul@gmail.com."
+      "Co czwartek w godz. 18:30–20:30 młodzież w wieku 14–18 lat spotyka się przy ul. Dożynkowej 6A na Mokotowie na spotkaniach integracyjnych Fundacji Wyspa Wolności. To swobodny wieczór: gry planszowe, rozmowy i wspólne spędzanie czasu, bez presji.",
+      "Na spotkania przychodzą młodzi ludzie z Polski, Ukrainy i Białorusi, więc to dobra okazja, by poznać rówieśników z różnych krajów. Udział jest co tydzień, wyłącznie po wcześniejszym zapisie – wystarczy napisać na wolnawyspaul@gmail.com."
     ],
     "doHere": [
       "Pograj w gry planszowe z rówieśnikami",
       "Poznaj młodzież z Polski, Ukrainy i Białorusi",
-      "Porozmawiaj i poćwicz polski w luźnej atmosferze",
+      "Porozmawiaj i spędź czas w luźnej atmosferze",
       "Wpadaj co czwartek – po zapisie możesz przyjść na każde spotkanie"
     ],
     "getThere": "ul. Dożynkowa 6A, Warszawa-Mokotów (Stary Mokotów). Szczegóły dojścia organizatorzy podają przy zapisie.",
@@ -36,13 +36,13 @@
     "name": "Integration meetings of the Wyspa Wolności Foundation",
     "summary": "Weekly integration meetings for teens aged 14–18: board games, conversation and new friends from Poland, Ukraine and Belarus.",
     "article": [
-      "Every Thursday from 6:30 to 8:30 pm, young people aged 14–18 meet at ul. Dożynkowa 6A in Mokotów for the integration meetings of the Wyspa Wolności Foundation. It is a relaxed evening of board games and conversation, with no pressure and no language exams.",
-      "Teens from Poland, Ukraine and Belarus come along, so it is a good chance to meet peers from different countries and practise speaking Polish. Attendance is weekly and by prior registration only: just write to wolnawyspaul@gmail.com."
+      "Every Thursday from 6:30 to 8:30 pm, young people aged 14–18 meet at ul. Dożynkowa 6A in Mokotów for the integration meetings of the Wyspa Wolności Foundation. It is a relaxed evening of board games and conversation, with no pressure.",
+      "Teens from Poland, Ukraine and Belarus come along, so it is a good chance to meet peers from different countries. Attendance is weekly and by prior registration only: just write to wolnawyspaul@gmail.com."
     ],
     "doHere": [
       "Play board games with your peers",
       "Meet teens from Poland, Ukraine and Belarus",
-      "Chat and practise Polish in a relaxed atmosphere",
+      "Chat and spend time in a relaxed atmosphere",
       "Drop in every Thursday – once registered you can join any meeting"
     ],
     "getThere": "ul. Dożynkowa 6A, Warsaw-Mokotów (Stary Mokotów). The organisers share details on how to find the place when you register.",
@@ -55,7 +55,7 @@
   "meta": {
     "createdAt": "2026-11-24T10:37:10",
     "createdBy": "urkisse",
-    "updatedAt": "2026-11-24T10:37:10",
+    "updatedAt": "2026-11-24T11:58:05",
     "updatedBy": "urkisse"
   }
 }
