@@ -1,0 +1,47 @@
+{
+  "slug": "sciana-tenisowa-park-szczesliwicki",
+  "status": "draft",
+  "publishedAt": "2026-11-24T08:34:00",
+  "archived": false,
+  "categories": [
+    "sport"
+  ],
+  "lat": 52.20767,
+  "lng": 20.95832,
+  "address": "Park Szczęśliwicki, ul. Drawska 24 (od strony ul. Włodarzewskiej), Warszawa-Ochota",
+  "website": "https://tenismapa.pl/klub/park-szczesliwicki/",
+  "photos": [
+    {
+      "image": "/content/photos/img_1430.webp",
+      "author": "Dmitrij W. W.",
+      "license": "",
+      "licenseUrl": "",
+      "source": ""
+    }
+  ],
+  "videos": [],
+  "pl": {
+    "name": "Ścianka tenisowa w Parku Szczęśliwickim",
+    "summary": "Bezpłatna ścianka do tenisa ziemnego w Parku Szczęśliwickim na Ochocie. Można tu trenować uderzenia samemu, bez rezerwacji i bez partnera, o każdej porze.",
+    "article": [],
+    "doHere": [],
+    "getThere": "Park Szczęśliwicki leży na Ochocie, między ulicami Włodarzewską i Drawską. Ścianka jest w parku; adres w serwisach tenisowych: ul. Drawska 24.",
+    "bestTime": "Dzień i noc, cały rok; w weekendy bywa tłoczno, więc najspokojniej w dni powszednie",
+    "tips": []
+  },
+  "en": {
+    "name": "Tennis practice wall in Szczęśliwicki Park",
+    "summary": "A free tennis practice wall in Szczęśliwicki Park in Ochota. Train your strokes alone, any time of day, with no booking and no partner needed.",
+    "article": [],
+    "doHere": [],
+    "getThere": "Szczęśliwicki Park is in Ochota, between Włodarzewska and Drawska streets. The wall is inside the park; tennis listings give the address as ul. Drawska 24.",
+    "bestTime": "Day and night, all year; weekends can be busy, so weekdays are quietest",
+    "tips": []
+  },
+  "meta": {
+    "createdAt": "2026-11-24T08:34:06",
+    "createdBy": "urkisse",
+    "updatedAt": "2026-11-24T08:34:06",
+    "updatedBy": "urkisse"
+  }
+}
