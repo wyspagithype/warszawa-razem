@@ -1,0 +1,61 @@
+{
+  "slug": "sciana-tenisowa-kamionkowskie-blonia-elekcyjne",
+  "status": "published",
+  "publishedAt": "2026-11-24T10:16:54",
+  "archived": false,
+  "categories": [
+    "sport"
+  ],
+  "lat": 52.2435,
+  "lng": 21.06836,
+  "address": "Kamionkowskie Błonia Elekcyjne, rejon ul. Stanisława Augusta, Kamionek, Warszawa-Praga-Południe",
+  "website": "",
+  "photos": [],
+  "videos": [],
+  "pl": {
+    "name": "Ścianka tenisowa na Kamionkowskich Błoniach Elekcyjnych",
+    "summary": "Ścianka tenisowa na historycznych Kamionkowskich Błoniach Elekcyjnych na Pradze-Południe, dostępna całą dobę.",
+    "article": [
+      "Kamionkowskie Błonia Elekcyjne to rozległa łąka wśród zieleni Pragi-Południe, wpisana do rejestru zabytków w 1993 roku. Nazwa przypomina o wolnych elekcjach królów Polski: w 1573 roku wybrano tu Henryka Walezego, a w 1733 roku Augusta III, choć większość elekcji odbywała się na Woli. W latach 20. XX wieku część terenu stała się parkiem, a w latach 60. przekształcono go w park krajobrazowy z nowymi nasadzeniami i stawem.",
+      "Ścianka tenisowa stoi na terenie Błoni i według Google jest dostępna całą dobę. Ma dobre opinie (4,6/5 w dziesięciu ocenach), a użytkownicy zauważają, że często jest wolna, więc można spokojnie potrenować uderzenia. To ciekawe połączenie sportu z historią: grasz tam, gdzie przed wiekami wybierano królów."
+    ],
+    "doHere": [
+      "Potrenować uderzenia o ścianę na otwartej przestrzeni parku",
+      "Poznać historię Błoni: miejsca elekcji Henryka Walezego (1573) i Augusta III (1733)",
+      "Odpocząć na rozległej łące i przy stawie w parku krajobrazowym",
+      "Przejść się do sąsiedniego Parku Skaryszewskiego i nad jezioro Kamionkowskie"
+    ],
+    "getThere": "Błonia leżą na Kamionku, w dzielnicy Praga-Południe, po prawej stronie Wisły, w rejonie ul. Stanisława Augusta. Dokładny punkt ścianki pokazuje pinezka na mapie.",
+    "bestTime": "Cały rok, o każdej porze; najprzyjemniej w ciepłe, suche dni",
+    "tips": [
+      "Zabierz własne piłki i rakietę, bo na miejscu nie ma wypożyczalni",
+      "Ścianka stoi na otwartym terenie, więc zabierz wodę i ubierz się odpowiednio do pogody"
+    ]
+  },
+  "en": {
+    "name": "Tennis practice wall on the Kamionek Election Meadows",
+    "summary": "A tennis practice wall on the historic Kamionek Election Meadows in Praga-Południe, available around the clock.",
+    "article": [
+      "The Kamionek Election Meadows (Kamionkowskie Błonia Elekcyjne) are a wide meadow in the green heart of Praga-Południe, listed as a historic monument in 1993. The name recalls the free elections of Poland's kings: Henry of Valois was elected here in 1573 and Augustus III in 1733, although most elections took place in Wola. In the 1920s part of the area became a park, and in the 1960s it was reshaped into a landscape park with new planting and a pond.",
+      "The tennis wall stands on the meadows and, according to Google, is open around the clock. It has good reviews (4.6/5 from ten ratings), and users note that it is often free, so you can practise your strokes in peace. It is a nice mix of sport and history: you play where kings were once chosen."
+    ],
+    "doHere": [
+      "Practise your strokes against the wall in the open space of the park",
+      "Discover the history of the Meadows: the election site of Henry of Valois (1573) and Augustus III (1733)",
+      "Relax on the wide meadow and by the pond in the landscape park",
+      "Walk on to neighbouring Skaryszewski Park and the Kamionek lake"
+    ],
+    "getThere": "The Meadows lie in Kamionek, in the Praga-Południe district on the right bank of the Vistula, around ul. Stanisława Augusta. The pin on the map shows the exact spot of the wall.",
+    "bestTime": "All year round, at any time; most pleasant on warm, dry days",
+    "tips": [
+      "Bring your own balls and racket, as there is no rental on site",
+      "The wall is in an open area, so bring water and dress for the weather"
+    ]
+  },
+  "meta": {
+    "createdAt": "2026-11-24T10:16:54",
+    "createdBy": "urkisse",
+    "updatedAt": "2026-11-24T10:16:54",
+    "updatedBy": "urkisse"
+  }
+}
